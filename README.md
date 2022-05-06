@@ -33,3 +33,8 @@ Port 3000 inside of container mapped to port 5000 on host machine.
 Open http://localhost:5000 on browser OR
 
     curl -i localhost:5000
+
+# Task 3
+
+#### Create a Basic API with Database Communication
+
