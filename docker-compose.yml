@@ -13,6 +13,8 @@ services:
       - MYSQL_ROOT_PASSWORD=pass
     ports:
       - 3306:3306
+    volumes:
+       - docker-start-mysql-data:/var/lib/mysql
       
   # Node API Services
   node_api:
@@ -20,11 +22,14 @@ services:
     build:
       context: .
     restart: unless-stopped
+    working_dir: "/usr/src/app"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
       - 3000:3000
     depends_on:
       - mysql_server
 
- 
-
-  
+volumes:
+   docker-start-mysql-data:
