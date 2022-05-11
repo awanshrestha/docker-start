@@ -1,35 +1,9 @@
 version: '3.9'
 
 services:
-  # MySQL Services
-  mysql_server:
-    container_name: docker_start_mysql_db
-    image: mysql
-    restart: unless-stopped
-    environment:
-      - MYSQL_DATABASE=test_db
-      - MYSQL_USER=awan
-      - MYSQL_PASSWORD=pass
-      - MYSQL_ROOT_PASSWORD=pass
+  #nginx
+  docker_nginx:
+    container_name: docker-nginx-start
+    image: nginx
     ports:
-      - 3306:3306
-    volumes:
-       - docker-start-mysql-data:/var/lib/mysql
-      
-  # Node API Services
-  node_api:
-    container_name: docker_start_node_api
-    build:
-      context: .
-    restart: unless-stopped
-    working_dir: "/usr/src/app"
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-    ports:
-      - 3000:3000
-    depends_on:
-      - mysql_server
-
-volumes:
-   docker-start-mysql-data:
+      - 80:80
