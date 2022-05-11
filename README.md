@@ -4,7 +4,7 @@
 
 Start a bare nginx server with docker.
 
-- Create a docker-compose file and setup nginx image on it.
+Create a docker-compose file and setup nginx image on it.
 
     version: '3.9'
 
@@ -16,5 +16,5 @@ Start a bare nginx server with docker.
         ports:
           - 80:80
 
-- visit http://localhost
+Visit http://localhost
 
